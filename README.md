@@ -30,6 +30,9 @@ edit your global config.
 
 Where
 -s pool server
+
 -w is your wallet
+
 -p password
+
 -i intensity
