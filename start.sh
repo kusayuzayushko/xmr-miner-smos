@@ -11,6 +11,10 @@ do
  i) INTENSITY=${OPTARG};;
  esac
 done
+
+sed $'s/\"wallet_address\" : \"[^,]*\",/\\\n/g' -i config.txt && sed '/^\s*$/d' -i config.txt
+echo "\"wallet_address\" : \"$WALLET\"," >> config.txt
+
 GPUNUMBER=`lspci | grep VGA | grep ATI | wc -l`
 sed '/"gpu_threads_conf"/,/],/d' -i config.txt
 echo "\"gpu_threads_conf\" : [ " >> config.txt
@@ -27,10 +31,6 @@ fi
 
 sed -i "s/\"pool_address\" : \"[^,]*\",/\"pool_address\" : \"$SERVER\",/"  config.txt
 
-#sed -i "s/\"wallet_address\" : \"[^,]*\",/\"wallet_address\" : \"$WALLET\",/" config.txt
-sed $'s/\"wallet_address\" : \"[^,]*\"/\\\n/g' -i config.txt && sed '/^\s*$/d' -i config.txt
-echo "\"wallet_address\" : \"$WALLET\"," >> config.txt
-
 sed -i "s/\"pool_password\" : \"[^,]*\",/\"pool_password\" : \"$PASSWORD\",/" config.txt
 
-#./xmr-stak-amd
+./xmr-stak-amd
