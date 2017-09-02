@@ -1,8 +1,7 @@
 /* 
  * Number of GPUs that you have in your system. Each GPU will get its own CPU thread.
  */
-"gpu_thread_num" : 3,  
-
+"gpu_thread_num" : 0,            
 /*
  * GPU configuration. You should play around with intensity and worksize as the fastest settings will vary.
  *      index    - GPU index number usually starts from 0
@@ -10,12 +9,10 @@
  *   worksize    - Number of local GPU threads (nothing to do with CPU threads)
  * affine_to_cpu - This will affine the thread to a CPU. This can make a GPU miner play along nicer with a CPU miner.
  */
-
 /*
  * Platform index. This will be 0 unless you have different OpenCL platform - eg. AMD and Intel.
  */
 "platform_index" : 0,
-
 /*
  * TLS Settings
  * If you need real security, make sure tls_secure_algo is enabled (otherwise MITM attack can downgrade encryption
@@ -28,16 +25,14 @@
 "use_tls" : false,
 "tls_secure_algo" : true,
 "tls_fingerprint" : "",
-
 /*
  * pool_address	  - Pool address should be in the form "pool.supportxmr.com:3333". Only stratum pools are supported.
  * wallet_address - Your wallet, or pool login.
  * pool_password  - Can be empty in most cases or "x".
  */
-"pool_address" : "xmr-eu1.nanopool.org:14444",
-"wallet_address" : "42MmCH6p1B3P7BaC3y8KcXayNcKa1jaU9RnUPKFy7SMAJrGrgMajd17WbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm3xUCcQ2.RX580",
-"pool_password" : "z",
-
+"pool_address" : "",
+,
+"pool_password" : "",
 /*
  * Network timeouts.
  * Because of the way this client is written it doesn't need to constantly talk (keep-alive) to the server to make 
@@ -55,7 +50,6 @@
 "call_timeout" : 10,
 "retry_time" : 10,
 "giveup_limit" : 0,
-
 /*
  * Output control.
  * Since most people are used to miners printing all the time, that's what we do by default too. This is suboptimal
@@ -70,7 +64,6 @@
  *                 4 - All of level 3, and automatic hashrate report printing 
  */
 "verbose_level" : 4,
-
 /*
  * Automatic hashrate report
  *
@@ -78,7 +71,6 @@
  *                This option has no effect if verbose_level is not 4.
  */
 "h_print_time" : 60,
-
 /*
  * Daemon mode
  *
@@ -86,7 +78,6 @@
  * This should solve the hashrate problems on some emulated terminals.
  */
 "daemon_mode" : false,
-
 /*
  * Output file
  *
@@ -94,7 +85,6 @@
  *
  */
 "output_file" : "",
-
 /*
  * Built-in web server
  * I like checking my hashrate on my phone. Don't you?
@@ -104,14 +94,11 @@
  * httpd_port - Port we should listen on. Default, 0, will switch off the server.
  */
 "httpd_port" : 0,
-
 /*
  * prefer_ipv4 - IPv6 preference. If the host is available on both IPv4 and IPv6 net, which one should be choose?
  *               This setting will only be needed in 2020's. No need to worry about it now.
  */
 "prefer_ipv4" : true,
 "gpu_threads_conf" : [ 
-     { "index" : 0, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
-     { "index" : 1, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
-     { "index" : 2, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
 ],
+"wallet_address" : "42MmCH6p1B3P7BaC3y8KcXayNcKa1jaU9RnUPKFy7SMAJrGrgMajd17WbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm3xUCcQ2.RX580",
