@@ -1,7 +1,7 @@
-/* 
+/*
  * Number of GPUs that you have in your system. Each GPU will get its own CPU thread.
  */
-"gpu_thread_num" : 0,                    
+"gpu_thread_num" : 3,
 /*
  * GPU configuration. You should play around with intensity and worksize as the fastest settings will vary.
  *      index    - GPU index number usually starts from 0
@@ -16,7 +16,7 @@
 /*
  * TLS Settings
  * If you need real security, make sure tls_secure_algo is enabled (otherwise MITM attack can downgrade encryption
- * to trivially breakable stuff like DES and MD5), and verify the server's fingerprint through a trusted channel. 
+ * to trivially breakable stuff like DES and MD5), and verify the server's fingerprint through a trusted channel.
  *
  * use_tls         - This option will make us connect using Transport Layer Security.
  * tls_secure_algo - Use only secure algorithms. This will make us quit with an error if we can't negotiate a secure algo.
@@ -30,13 +30,12 @@
  * wallet_address - Your wallet, or pool login.
  * pool_password  - Can be empty in most cases or "x".
  */
-"pool_address" : "",
-,
-"pool_password" : "",
+"pool_address" : "xmr-eu1.nanopool.org:14444",
+"pool_password" : "z",
 /*
  * Network timeouts.
- * Because of the way this client is written it doesn't need to constantly talk (keep-alive) to the server to make 
- * sure it is there. We detect a buggy / overloaded server by the call timeout. The default values will be ok for 
+ * Because of the way this client is written it doesn't need to constantly talk (keep-alive) to the server to make
+ * sure it is there. We detect a buggy / overloaded server by the call timeout. The default values will be ok for
  * nearly all cases. If they aren't the pool has most likely overload issues. Low call timeout values are preferable -
  * long timeouts mean that we waste hashes on potentially stale jobs. Connection report will tell you how long the
  * server usually takes to process our calls.
@@ -57,13 +56,13 @@
  * performance monitors, there is very little reason to spew out pages of text instead of concise reports.
  * Press 'h' (hashrate), 'r' (results) or 'c' (connection) to print reports.
  *
- * verbose_level - 0 - Don't print anything. 
+ * verbose_level - 0 - Don't print anything.
  *                 1 - Print intro, connection event, disconnect event
  *                 2 - All of level 1, and new job (block) event if the difficulty is different from the last job
  *                 3 - All of level 1, and new job (block) event in all cases, result submission event.
- *                 4 - All of level 3, and automatic hashrate report printing 
+ *                 4 - All of level 3, and automatic hashrate report printing
  */
-"verbose_level" : 4,
+"verbose_level" : 3,
 /*
  * Automatic hashrate report
  *
@@ -99,6 +98,9 @@
  *               This setting will only be needed in 2020's. No need to worry about it now.
  */
 "prefer_ipv4" : true,
-"wallet_address" : "",
-"gpu_threads_conf" : [ 
+"wallet_address" : "1234.rig/email.example.com",
+"gpu_threads_conf" : [
+     { "index" : 0, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
+     { "index" : 1, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
+     { "index" : 2, "intensity" : 1024, "worksize" : 8, "affine_to_cpu" : false },
 ],
